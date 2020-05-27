@@ -31,57 +31,59 @@ let printer = new ThermalPrinter({
   }
 });
 
-let isConnected = await printer.isPrinterConnected();       // Check if printer is connected, return bool of status
-let execute = await printer.execute();                      // Executes all the commands. Returns success or throws error
-let raw = await printer.raw(Buffer.from("Hello world"));    // Print instantly. Returns success or throws error
-printer.print("Hello World");                               // Append text
-printer.println("Hello World");                             // Append text with new line
-printer.openCashDrawer();                                   // Kick the cash drawer
-printer.cut();                                              // Cuts the paper (if printer only supports one mode use this)
-printer.partialCut();                                       // Cuts the paper leaving a small bridge in middle (if printer supports multiple cut modes)
-printer.beep();                                             // Sound internal beeper/buzzer (if available)
-printer.upsideDown(true);                                   // Content is printed upside down (rotated 180 degrees)
-printer.setCharacterSet("SLOVENIA");                        // Set character set - default set on init
-printer.setPrinterDriver(Object)                            // Set printer drive - default set on init
+let isConnected = await printer.isPrinterConnected();       // Verifica se impressora está online retornando boleano
+let execute = await printer.execute();                      // Executa todos os comandos. Retorna success ou error
+let raw = await printer.raw(Buffer.from("Hello world"));    // Imprime instantâneamente. Retorna success ou error
+printer.print("Hello World");                               // Texto
+printer.println("Hello World");                             // Texto em nova linha
+printer.openCashDrawer();                                   // Abre a caixa registradora
+printer.cut();                                              // Corta o papel
+printer.partialCut();                                       // Corta um papel deixando um pequeno pedaço no meio
+printer.beep();                                             // Bep (som) da impressora 
+printer.upsideDown(true);                                   // Conteudo impresso virado 180º
+printer.setCharacterSet("SLOVENIA");                        // Definir character set
+printer.setPrinterDriver(Object)                            // Definir drive da impressora
 
-printer.bold(true);                                         // Set text bold
-printer.invert(true);                                       // Background/text color inversion
-printer.underline(true);                                    // Underline text (1 dot thickness)
-printer.underlineThick(true);                               // Underline text with thick line (2 dot thickness)
-printer.drawLine();                                         // Draws a line
-printer.newLine();                                          // Insers break line
+printer.bold(true);                                         // Texto em negrito
+printer.invert(true);                                       // Inverter cor do texto e background
+printer.underline(true);                                    // Sublinhar texto com 1 ponto
+printer.underlineThick(true);                               // Sublinhar texto com 2 pontos
+printer.drawLine();                                         // Desenhar uma linha
+printer.newLine();                                          // Quebra de linha
 
-printer.alignCenter();                                      // Align text to center
-printer.alignLeft();                                        // Align text to left
-printer.alignRight();                                       // Align text to right
+printer.alignCenter();                                      // Centralizar textos
+printer.alignLeft();                                        // Alinhar textos a esquerda
+printer.alignRight();                                       // Alinhar textos a direita
 
-printer.setTypeFontA();                                     // Set font type to A (default)
-printer.setTypeFontB();                                     // Set font type to B
+printer.setTypeFontA();                                     // Definir fonte do tipo A
+printer.setTypeFontB();                                     // Definir fonte do tipo B
 
-printer.setTextNormal();                                    // Set text to normal
-printer.setTextDoubleHeight();                              // Set text to double height
-printer.setTextDoubleWidth();                               // Set text to double width
-printer.setTextQuadArea();                                  // Set text to quad area
-printer.setTextSize(7,7);                                   // Set text height (0-7) and width (0-7)
+printer.setTextNormal();                                    // Definir texto normal
+printer.setTextDoubleHeight();                              // Definir texto dobro de altura
+printer.setTextDoubleWidth();                               // Definir texto dobro de largura
+printer.setTextQuadArea();                                  // Definir texto em área quadrada
+printer.setTextSize(7,7);                                   // Definir altura (0-7) e largura (0-7) do texto
 
-printer.leftRight("Left", "Right");                         // Prints text left and right
-printer.table(["One", "Two", "Three"]);                     // Prints table equaly
-printer.tableCustom([                                       // Prints table with custom settings (text, align, width, cols, bold)
+printer.leftRight("Left", "Right");                         // Imprimir textos na esquerda e na direita
+printer.table(["One", "Two", "Three"]);                     // Imprimir tabelas igualmentes
+printer.tableCustom([                                       // Imprimir textos customizados (texto, alinhamento, largura, colunas, negrito)
   { text:"Left", align:"LEFT", width:0.5 },
   { text:"Center", align:"CENTER", width:0.25, bold:true },
   { text:"Right", align:"RIGHT", cols:8 }
 ]);
 
-printer.code128("Code128");                                 // Print code128 bar code
-printer.printQR("QR CODE");                                 // Print QR code
-await printer.printImage('./assets/olaii-logo-black.png');  // Print PNG image
+printer.code128("Code128");                                 // Imprimir código de barras Code128
+printer.printQR("QR CODE");                                 // Imprimir QR Code
+await printer.printImage('./assets/olaii-logo-black.png');  // Imprimir imagem PNG 
 
-print.clear();                                              // Clears printText value
-print.getText();                                            // Returns printer buffer string value
-print.getBuffer();                                          // Returns printer buffer
-print.setBuffer(newBuffer);                                 // Set the printer buffer to a copy of newBuffer
-print.getWidth();                                           // Get number of characters in one line
+print.clear();                                              // Limpar valores de textos
+print.getText();                                            // Retorna o valor da string do buffer da impressora
+print.getBuffer();                                          // Retorna o buffer da impressora
+print.setBuffer(newBuffer);                                 // Defina o buffer da impressora como uma cópia do newBuffer
+print.getWidth();                                           // Obter número de caracteres em uma linha
 ```
+
+
 
 
 
