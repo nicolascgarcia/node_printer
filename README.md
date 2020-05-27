@@ -82,7 +82,19 @@ print.getBuffer();                                          // Retorna o buffer 
 print.setBuffer(newBuffer);                                 // Defina o buffer da impressora como uma cópia do newBuffer
 print.getWidth();                                           // Obter número de caracteres em uma linha
 ```
-
+### Como executar (Para EPSON)
+Impressora online
+```bash
+node print.js tcp://xxx.xxx.xxx.xxx
+```
+Nome da impressora via módulo
+```bash
+node print.js 'printer:Minha impressora'
+```
+Porta local ou arquivo
+```bash
+node print.js '/dev/usb/lp0'
+```
 
 
 
