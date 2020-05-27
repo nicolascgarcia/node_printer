@@ -95,7 +95,3 @@ Porta local ou arquivo
 ```bash
 node print.js '/dev/usb/lp0'
 ```
-
-
-
-
